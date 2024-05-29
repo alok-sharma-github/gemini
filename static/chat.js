@@ -1,7 +1,7 @@
 // Function to send a message
 function sendMessage() {
     var messageInput = document.getElementById('user-input');
-    var selectedMode = document.querySelector('input[name="chat_mode"]:checked').value; // Get selected chat mode
+    // var selectedMode = document.querySelector('input[name="chat_mode"]:checked').value; // Get selected chat mode
 
     // Trim whitespace from the message
     var trimmedMessage = messageInput.value.trim();
@@ -15,11 +15,11 @@ function sendMessage() {
     messageInput.value = '';
 
     // Simulate bot response with the user message
-    simulateBotResponse(trimmedMessage, selectedMode);
+    simulateBotResponse(trimmedMessage);
 }
 
 // Function to simulate bot response
-function simulateBotResponse(userQuery, mode) {
+function simulateBotResponse(userQuery) {
     // Simulate delay to mimic server response time
     setTimeout(() => {
         // Send the user query and mode to the server
@@ -28,7 +28,7 @@ function simulateBotResponse(userQuery, mode) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ query: userQuery, mode: mode }), // Pass the user query and mode
+            body: JSON.stringify({ query: userQuery}), // Pass the user query and mode
         })
         .then(response => response.json())
         .then(data => {

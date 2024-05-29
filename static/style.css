@@ -5,19 +5,25 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-    color: aliceblue;
+    color: black;
 }
 
-body {
-    background-color: #0f0f20;
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling */
+    background-color: black
 }
 
 .main-div {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
     position: relative;
+    margin-top: 20px;
 }
 
 .menuToggle {
@@ -51,26 +57,26 @@ body {
     position: absolute;
     bottom: 30px;
     z-index: 1;
-    transition: 0.5s, height 0.5s, width 0.5s;
+    transition: height 0.5s, width 0.5s, transform 0.5s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .menuToggle.active ~ .container {
-    height: 550px;
-    width: 390px;
+    height: 100vh;
+    width: 100vw;
     z-index: 3;
-    transition-delay: 1s, 0.5s, 0.5s;
-    transform: translateY(-100px);
+    transition-delay: 0s, 0.5s, 0.5s;
+    transform: translateY(0);
 }
 
 .container .top-part {
     height: 100px;
     background: #0f0f20;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
 }
-
 .container .top-part i {
     font-size: 40px;
     cursor: pointer;
@@ -103,11 +109,10 @@ body {
 .agent-text span {
     color: greenyellow;
 }
-
 .chart-section {
     position: relative;
     padding: 0 20px;
-    max-height: 350px; /* Limiting maximum height */
+    max-height: calc(100vh - 200px); /* Updated to ensure the chat section doesn't overflow */
     overflow-y: auto; /* Adding vertical scroll */
 }
 
@@ -151,7 +156,7 @@ body {
 
 .bottom-section {
     position: absolute;
-    bottom: 10px;
+    bottom: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -205,16 +210,17 @@ body {
 
 .message.right p {
     display: inline-block;
-    background-color: #4CAF50;
+    background-color: #7266ba;
     color: white;
     text-align: left;
 }
 
 .message.left p {
     display: inline-block;
-    background-color: #047ea3;
-    color: white;
+    background-color: #26bfca;
+    color: black;
     text-align: left;
+    box-shadow: #0f0f20;
 }
 
 .message span {
@@ -243,14 +249,14 @@ body {
 }
 
 .message.right .message-content {
-    background-color: #4CAF50;
+    background-color: #7266ba;
     color: white;
     text-align: left;
 }
-
+/* color change to white in place of black */
 .message.left .message-content {
-    background-color: #047ea3;
-    color: white;
+    background-color: #26bfca;
+    color: white !important ;
     text-align: left;
 }
 
@@ -261,7 +267,7 @@ body {
     right: -10px;
     border-width: 10px;
     border-style: solid;
-    border-color: transparent transparent transparent #4CAF50;
+    border-color: transparent transparent transparent #7266ba;
 }
 
 .message.left .message-content::after {
@@ -271,7 +277,7 @@ body {
     left: -10px;
     border-width: 10px;
     border-style: solid;
-    border-color: transparent #047ea3 transparent transparent;
+    border-color: transparent #ebebeb transparent transparent;
 }
 /* Style the outermost div */
 .message-final {
@@ -322,8 +328,8 @@ h3 {
 }
 
 .product-item h4 a {
-    color: #007bff;
-    text-decoration: none; /* Remove underline from the link */
+    color: #047ea3;
+    text-decoration: none; /* dRemove underline from the link */
 }
 
 .product-item h4 a:hover {
@@ -373,4 +379,8 @@ h3 {
 .selection label:hover {
     color: #007bff;
     font-weight: bold;
+}
+
+li{
+    color: white;
 }
